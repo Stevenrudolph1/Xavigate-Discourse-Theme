@@ -1,9 +1,14 @@
 {
   "name": "XAVIGATE-DISCOURSE-THEME",
   "component": false,
-  "license_url": "https://github.com/discourse/discourse-topic-cards/blob/main/LICENSE",
-  "about_url": "https://meta.discourse.org/t/discourse-topic-cards/296048",
-  "authors": null,
+  "license_url": "https://github.com/pushpinder6805/Xavigate-Discourse-Theme#",
+  "about_url": "https://github.com/pushpinder6805/Xavigate-Discourse-Theme#",
+  "authors": [
+    {
+      "name": "Pushpinder Singh",
+      "url": "https://github.com/pushpinder6805"
+    }
+  ],
   "theme_version": 1.0,
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
@@ -12,26 +17,11 @@
   "modifiers": {
     "serialize_topic_excerpts": true,
     "topic_thumbnail_sizes": [
-      [
-        200,
-        200
-      ],
-      [
-        300,
-        300
-      ],
-      [
-        400,
-        400
-      ],
-      [
-        600,
-        600
-      ],
-      [
-        800,
-        800
-      ]
+      [200, 200],
+      [300, 300],
+      [400, 400],
+      [600, 600],
+      [800, 800]
     ],
     "serialize_topic_op_likes_data": true
   },
