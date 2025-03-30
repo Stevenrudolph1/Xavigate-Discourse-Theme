@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/ef72e35a-5ec9-4618-8b17-57f6b32e4815)
+
+
 # XAVIGATE Discourse Theme - Client Documentation
 
 Welcome! This document explains, in simple terms, how this Discourse theme works, where the code is located, and how each part contributes to your forum's design and features.
