@@ -1,0 +1,85 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<script type="text/discourse-plugin" version="0.8">
+  api.onPageChange(() => {
+    // Avoid inserting multiple times
+    if (document.querySelector(".my-custom-before-button")) return;
+
+    const btn = document.querySelector("#create-topic");
+    if (btn) {
+      const div = document.createElement("div");
+      div.className = "my-custom-before-button";
+      div.innerHTML = `
+        <div class="dropdown" id="myDropdown">
+          <div class="dropdown-toggle">Latest</div>
+          <div class="dropdown-menu">
+            <a href="/latest?order=created">Oldest</a>
+            <a href="/top">Popular</a>
+          </div>
+        </div>
+      `;
+      btn.parentNode.insertBefore(div, btn);
+
+      // Now add the event listeners AFTER inserting into DOM
+      const dropdown = div.querySelector("#myDropdown");
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+
+      toggle.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+
+      // Close when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove("open");
+        }
+      });
+    }
+  });
+</script>
+
+<script type="text/discourse-plugin" version="0.8">
+  api.onPageChange(() => {
+    // Only on topic pages
+    if (!window.location.pathname.match(/^\/t\//)) return;
+
+    // Avoid duplication
+    if (document.querySelector(".back-to-category-link")) return;
+
+    // Get category info
+    const categoryLinks = document.querySelectorAll("#topic-title .badge-category__wrapper");
+    if (!categoryLinks.length) return;
+
+    const lastCategory = categoryLinks[categoryLinks.length - 1];
+    const href = lastCategory.getAttribute("href");
+    const categoryName = lastCategory.textContent.trim();
+
+    // Create the back link element
+    const backLink = document.createElement("div");
+    backLink.className = "back-to-category-link";
+    backLink.innerHTML = `
+      <a href="${href}" class="back-to-cat-btn">← Back to ${categoryName}</a>
+    `;
+
+    // Insert above topic title
+    const topicTitle = document.querySelector("#topic-title");
+    if (topicTitle) {
+      topicTitle.parentNode.insertBefore(backLink, topicTitle);
+    }
+  });
+</script>
+
+<script type="text/discourse-plugin" version="0.8">
+  api.onPageChange(() => {
+    document.querySelectorAll(".post-controls").forEach((controls) => {
+      // Simulate clicking "show more" to reveal hidden buttons
+      const showMore = controls.querySelector(".post-action-menu__show-more");
+      if (showMore) showMore.click();
+    });
+  });
+</script>
+

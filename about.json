@@ -1,0 +1,39 @@
+{
+  "name": "XAVIGATE-DISCOURSE-THEME",
+  "component": false,
+  "license_url": "https://github.com/discourse/discourse-topic-cards/blob/main/LICENSE",
+  "about_url": "https://meta.discourse.org/t/discourse-topic-cards/296048",
+  "authors": null,
+  "theme_version": 1.0,
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {},
+  "color_schemes": {},
+  "modifiers": {
+    "serialize_topic_excerpts": true,
+    "topic_thumbnail_sizes": [
+      [
+        200,
+        200
+      ],
+      [
+        300,
+        300
+      ],
+      [
+        400,
+        400
+      ],
+      [
+        600,
+        600
+      ],
+      [
+        800,
+        800
+      ]
+    ],
+    "serialize_topic_op_likes_data": true
+  },
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
+}
