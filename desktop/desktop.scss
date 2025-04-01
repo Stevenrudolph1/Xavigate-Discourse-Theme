@@ -941,10 +941,7 @@ animation: none !important;
 nav.post-controls .actions {
   margin-left: 10em !important;
 }
-/* Hide Wrench (admin actions) */
-.post-action-menu__admin {
-display: none !important;
-}
+
 
 /* Hide Copy Link */
 .post-action-menu__copy-link {
@@ -1158,6 +1155,7 @@ font-weight: 600;
 .d-editor-button-bar .toolbar-popup-menu-options {
 display: none !important;
 }
+
 .fk-d-menu[data-content][data-identifier=emoji-picker] {
   z-index: 9999999;
 }
