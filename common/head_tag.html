@@ -83,3 +83,84 @@
   });
 </script>
 
+<!-- Translation container (hidden at first) -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,fr,de,hi,it,ja,km,ru,es',
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+  }
+
+  function loadGoogleTranslateScript() {
+    if (!window.google || !window.google.translate) {
+      const gtScript = document.createElement('script');
+      gtScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(gtScript);
+    } else {
+      googleTranslateElementInit();
+    }
+  }
+
+  function resetTranslatorContainer() {
+    const container = document.getElementById('google_translate_element');
+    if (container) {
+      container.innerHTML = '';
+    }
+  }
+
+  function reloadTranslatorOnRouteChange() {
+    resetTranslatorContainer();
+    loadGoogleTranslateScript();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    loadGoogleTranslateScript();
+
+    const interval = setInterval(function () {
+      const currentUserButton = document.getElementById('toggle-current-user');
+      if (currentUserButton) {
+        clearInterval(interval);
+
+        const translateButton = document.createElement('button');
+        translateButton.classList.add('btn', 'btn-primary', 'btn-small', 'btn0');
+        translateButton.innerText = 'Translate';
+
+        // Styling
+        translateButton.style.background = 'none';
+        translateButton.style.border = '1px solid #a29999 !important';
+        translateButton.style.padding = '10px 15px';
+        translateButton.style.color = 'black';
+        translateButton.style.borderRadius = '5px';
+        translateButton.style.border = 'none';
+        translateButton.style.cursor = 'pointer';
+        translateButton.style.fontSize = '13px';
+        translateButton.style.fontFamily = 'Montserrat';
+        translateButton.style.marginRight = '10px';
+
+        // On click: toggle visibility of translate widget
+        translateButton.onclick = function () {
+          const el = document.getElementById('google_translate_element');
+          el.style.textAlign = 'right'; // Align to right
+          el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        };
+
+        currentUserButton.parentNode.insertBefore(translateButton, currentUserButton);
+      }
+    }, 500);
+  });
+
+  // Handle SPA navigation
+  if (window.require) {
+    require('@ember/service').default.extend({
+      didTransition() {
+        this._super(...arguments);
+        reloadTranslatorOnRouteChange();
+      }
+    });
+  }
+</script>
+

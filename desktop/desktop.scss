@@ -1477,3 +1477,24 @@ box-shadow: none;
 .back-to-category-link a {
   margin-left: 32px;
 }
+
+//new-customcss//
+.d-header-icons .header-dropdown-toggle {
+  display: flex
+;
+}
+
+.header-search--visible .floating-search-input-wrapper, .search-header--visible .floating-search-input-wrapper {
+  margin-left: -220px !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-container .topic-timeline .timeline-footer-controls {
+      transition: opacity .2s ease-in;
+      display: none;
+  }
+}
+
+.timeline-scrollarea-wrapper{
+display: none;
+}
