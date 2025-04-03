@@ -38,3 +38,27 @@ Used for images, logos, icons, or custom SVGs used in the theme.
 
 # ✅ javascripts/discourse/
 Custom JavaScript code that interacts with Discourse components.
+
+# How to setup custom Groups or Spaces
+
+ 1. Go to https://community.xavigate.com/g as admin and click on new group
+ 2. Add the details and add owners and members click create 
+ 3. To add this group to a category go inside the category and click on wrench icon
+  ![alt text](image.png)
+
+4. Go to secuirty and add the group created and staff to that group remove all others , to make it private to that group only 
+![alt text](image-1.png)
+
+
+video tutorial for refrence 
+<video controls src="Spaces xavigate.mp4" title="Title"></video>
+
+# How to create a Category 
+1. go to https://community.xavigate.com/categories?safe_mode=no_themes%2Cno_plugins and click on wrench icon 
+![alt text](image-2.png)
+
+2. Click on new category and add details 
+![alt text](image-3.png)
+
+
+
