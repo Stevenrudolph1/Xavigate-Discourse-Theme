@@ -51,7 +51,7 @@ Custom JavaScript code that interacts with Discourse components.
 
 
 video tutorial for refrence 
-<video controls src="Spaces xavigate.mp4" title="Title"></video>
+<video controls src="F:\Git\Xavigate-Discourse-Theme\Spaces xavigate.mp4" title="Title"></video>
 
 # How to create a Category 
 1. go to https://community.xavigate.com/categories?safe_mode=no_themes%2Cno_plugins and click on wrench icon 
