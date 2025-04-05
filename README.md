@@ -216,4 +216,76 @@ cd /var/discourse
 You have installed discourse on AWS EC2 or lightsail then you can upgrade the storage needed from AWS console , (Advanced method --you can also download the backup and create new instance with same elastic IP and install discourse again with restoring your old backup )
 
 #  User roles
+![alt text](image-6.png)
+![alt text](image-7.png)
 
+# Admin account setup via backend
+
+commands 
+cd /var/discourse
+./launcher enter app
+rake admin:create
+
+#  Discourse backend and docker installation
+Discourse is running inside the docker and you can check docker with 
+systemctl status docker 
+
+Discourse dir is /var/discourse
+config file is /var/discourse/containers/app.yml
+backup is /var/discourse/shared
+
+
+# Discourse Basic
+
+## User Registration
+
+Discourse provides a streamlined user registration process. Users can sign up using:
+
+- Invite-only registration (if the community restricts public sign-ups)
+
+After registration, users may need to verify their email address before gaining full access.
+
+## User Roles and User Interface (with Admin)
+
+### User Roles
+
+Discourse has several default user roles with different levels of access:
+
+- **Admin**: Full access to site settings, users, categories, and backups.
+- **Moderator**: Can manage posts, users, and flags but not site-wide settings.
+- **Regular Users**: Can participate in discussions, flag posts, and gain trust levels.
+
+### User Interface
+
+- **Admins** see a gear icon for accessing site settings.
+- **Moderators** see moderation tools on posts and user profiles.
+- **Users** see standard UI elements like categories, topic lists, and notifications.
+
+## User Profile
+
+Each user has a personal profile with:
+
+- Bio and personal information  
+- Activity tab showing posts, replies, and topics  
+- Preferences for notifications, interface, and account settings  
+- Badges earned based on participation and community trust levels
+
+## User Notifications
+
+Discourse offers real-time and email notifications for:
+
+- Replies to your posts  
+- Mentions using @username  
+- Likes on your content  
+- Private messages  
+- Watched topics and categories
+
+Users can customize notification settings from their **profile > Preferences > Notifications**.
+
+
+# Sidebar Menu's Categories Links
+
+1. go to admin/settings and search for Default navigation menu categories or use this link  https://community.xavigate.com/admin/site_settings/category/all_results?filter=Default%20navigation%20menu%20categories
+2. update the categories ( will now visible for all users )
+
+![alt text](image-8.png)
